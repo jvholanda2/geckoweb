@@ -2,6 +2,11 @@
 import Dashboard from "./views/Dashboard.js"
 import Posts from "./views/Posts.js"
 import Settings from "./views/Settings.js"
+import WhoWillPlay from "./views/WhoWillPlay.js"
+import Themes from "./views/Themes.js"
+import PassThePhoneTo from "./views/PassThePhoneTo.js"
+import TheWordIs from "./views/TheWordIs.js"
+import StartTheRound from "./views/StartTheRound.js"
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -13,7 +18,11 @@ const router = async () => {
         {path: "/", view: Dashboard },
         {path: "/posts", view: Posts },
         {path: "/settings", view: Settings},
-
+        {path: "/WhoWillPlay", view: WhoWillPlay},
+        {path: "/Themes", view: Themes},
+        {path: "/PassThePhoneTo", view: PassThePhoneTo},
+        {path: "/TheWordIs", view: TheWordIs},
+        {path: "/StartTheRound", view: StartTheRound},
     ];
 
     const potentialMatches = routes.map(route => {

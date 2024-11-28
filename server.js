@@ -16,3 +16,5 @@ app.listen(process.env.PORT || 3000, () => console.log("Tá rodando!"));
 //npm install --save-dev nodemon
 // npx run dev
 // Meu mac:  npx nodemon server.js
+// npx run dev (meu)
+// npx nodemon server.js (irede)
