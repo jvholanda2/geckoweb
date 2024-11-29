@@ -12,6 +12,14 @@ export default class from extends AbstractView {
 
     async getHtml() {
         return `
+            <div>
+                <h2>Passe o celular para:</h2>
+                <div>
+                    <img src="" alt="">
+                    <span>Nome1</span>
+                </div>
+                <button>Sim, eu sou Nome1!</button>
+            </div>
             <a href="/dashboard" data-lin>Go To dashboard</a>
         `; 
     }
