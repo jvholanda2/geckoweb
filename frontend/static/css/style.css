@@ -58,9 +58,10 @@ body {
     flex-direction: column;
     gap: 5px;
     margin: 10px; 
-    max-width: 390px;
+    /* max-width: 390px; */
     align-items: center;
     border: solid red 1px;
+    background: #F3F4FD;
 }
 
 .gecko_wrap {
@@ -105,6 +106,10 @@ body {
 
 #gecko_players_list {
     max-height: 50px;
-    border: solid grey 1px;
+    border: none;
+    border-radius: 14px;
     overflow-y: scroll;
+    background: #fff;
+    padding: 5px;
+    
 }
