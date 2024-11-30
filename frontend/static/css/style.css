@@ -56,12 +56,18 @@ body {
 .gecko_view {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    margin: 10px; 
+    gap: 5px; 
     /* max-width: 390px; */
     align-items: center;
     border: solid red 1px;
     background: #F3F4FD;
+    padding-top: 20px;
+    height: 100vh;
+}
+
+#gecko_div_title_title {
+    font-size: 30px;
+    margin: 20px;
 }
 
 .gecko_wrap {
@@ -75,7 +81,7 @@ body {
     font-family: "Titan One", sans-serif;
     color: #00406F;
     font-size: 20px;
-
+    margin-top: 20px;
 }
 
 .gecko_text {
@@ -84,10 +90,11 @@ body {
 }
 
 .gecko_input {
-    border: solid 1px gray;
+    border: solid 1px #BFBFBF;
     border-radius: 12px;
     height: 15px;
     padding: 10px;
+
 
 }
 
@@ -101,15 +108,29 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
 
 }
 
+#gecko_button_bottom {
+    bottom: 0px;
+}
+
 #gecko_players_list {
-    max-height: 50px;
+    max-height: 100px;
     border: none;
     border-radius: 14px;
     overflow-y: scroll;
     background: #fff;
-    padding: 5px;
+    padding: 10px 15px;
     
+}
+
+.gecko_players_list_item {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Nunito", sans-serif;
+    padding: 8px 10px 8px 2px;
+    border-bottom: solid #BFBFBF 1px;
 }
