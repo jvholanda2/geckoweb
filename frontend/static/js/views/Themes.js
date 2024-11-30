@@ -25,7 +25,7 @@ export default class from extends AbstractView {
                     <p>tema 1</p>
                 </div>
             </div>
-            <button>Começar</button>
+            <a class="gecko_button_main" href="PassThePhoneTo" id="gecko_button_bottom">Começar</a>
         </div>
 
 
