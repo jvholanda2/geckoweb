@@ -12,25 +12,26 @@ export default class from extends AbstractView {
 
     async getHtml() {
         return `
-            <div>
-                <span>Nome2</span>
-                <p>A palavra da rodada é:</p>
-                <div>
-                    <span>Michael Jackson</span>
+            <div class="gecko_view gecko_view_word">
+                <div class="gecko_wrap">
+                    <span class="gecko_title">Nome2</span>
+                    <p class="gecko_text gecko_text_bold">A palavra da rodada é:</p>
+                    <div class="gecko_word">
+                        <span class="gecko_title">Michael Jackson</span>
+                    </div>
+                    <p class="gecko_text gecko_text_bold">Todos irão receber essa mesma palavra, exceto o <span class="gecko_text_impostor">impostor...</span></p>            
                 </div>
-                <p>Todos irão receber essa mesma palavra, exceto o <span>impostor</span></p>
-                <button>Entendido!</button>
-            </div>
-            <div>
-                <span>Nome3</span>
-                <p>Se prepate, pois você é:</p>
-                <div>
-                    <span>O Impostor</span>
+                <div class="gecko_wrap">
+                    <span class="gecko_title">Nome3</span>
+                    <p class="gecko_text gecko_text_bold">Se prepate, pois você é:</p>
+                    <div class="gecko_word gecko_word_impostor">
+                        <span class="gecko_title ">O Impostor</span>
+                    </div>
+                    <p class="gecko_text gecko_text_bold">O tema da rodada é <span class="gecko_text_theme">Famosos</span>, agora é só fingir que você sabe qual é a palavra!</p>    
                 </div>
-                <p>O tema da rodada é <span>Famosos</span>, agora é só fingir que você sabe qual é a palavra!</p>
-                <button>Entendido!</button>
+                <a class="gecko_button_main" href="PassThePhoneTo" class="gecko_button_bottom">Entendido!</a>
+                <a class="gecko_button_main" href="StartTheRound" class="gecko_button_bottom">Entendido!</a>
             </div>
-            <a href="/dashboard" data-lin>Go To dashboard</a>
         `; 
     }
 }

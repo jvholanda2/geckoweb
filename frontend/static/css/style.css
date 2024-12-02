@@ -59,7 +59,6 @@ body {
     gap: 5px; 
     /* max-width: 390px; */
     align-items: center;
-    border: solid red 1px;
     background: #F3F4FD;
     padding-top: 20px;
     height: 100vh;
@@ -73,10 +72,11 @@ body {
 .gecko_wrap {
     display: flex;
     flex-direction: column;
-
+    max-width: 50vh;
     gap: 10px;
     margin-bottom: 20px;
 }
+
 
 .gecko_title {
     font-family: "Titan One", sans-serif;
@@ -112,11 +112,25 @@ body {
     text-align: center;
     text-decoration: none;
     
-
-
 }
 
-#gecko_button_bottom {
+.gecko_button_secondary {
+    background-color:  #fff;
+    max-width: 740px;
+    max-height: 48px;
+    color: #00406F;
+    border: solid #00406F 2px;
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.gecko_button_bottom {
     bottom: 0px;
 }
 
@@ -162,12 +176,11 @@ body {
 }
 
 .gecko_name_eyes {
-    border: solid red 3px;
     display: flex;
     flex-direction: column;  
     align-items: center;
     margin: 30vh 0;
-    //gap: 10px;
+    gap: 10px;
 
 }
 
@@ -177,4 +190,59 @@ body {
 
 .gecko_name_eyes span{
     font-size: 35px;
+}
+
+.gecko_text_bold {
+    font-weight: bold;
+}
+
+.gecko_view_word {
+    gap: 10px;
+}
+
+.gecko_word {
+    background: #D2E8FC;
+    padding: 8px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.gecko_text_impostor {
+    font-weight: bold;
+    color: #6F0000;
+
+}
+
+.gecko_text_theme {
+    font-weight: bold;
+    color: #0182E0;
+
+}
+
+.gecko_word_impostor {
+    background: #FCD2D2;
+}
+
+.gecko_word_impostor span{
+    color:#6F0000;
+}
+
+.gecko_wrap_start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.gecko_wrap_start img{
+    width: 100px;
+}
+
+.gecko_wrap_start span {
+    font-size: 35px;
+    text-align: center;
+}
+
+.gecko_view_start {
+    
 }

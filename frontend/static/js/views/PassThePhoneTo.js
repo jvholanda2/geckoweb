@@ -19,7 +19,8 @@ export default class from extends AbstractView {
                     <img src="static/assets/eyes.png" alt="">
                     <span class="gecko_title">Nome1</span>
                 </div>
-                <a class="gecko_button_main" href="PassThePhoneTo" id="gecko_button_bottom">Sim, eu sou Nome1!</a>
+                <a class="gecko_button_main" href="TheWordIs" id="gecko_button_bottom">Sim, eu sou Nome1!</a>
+                <a class="gecko_button_main" href="StartTheRound" class="gecko_button_bottom">Começar!</a>
             </div>
         </div>
         `; 
