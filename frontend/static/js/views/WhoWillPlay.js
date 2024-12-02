@@ -49,7 +49,6 @@ export default class from extends AbstractView {
                     <a class="gecko_button_main" href="Themes" id="gecko_button_bottom">Jogar</a>
                 </div>
             </div>
-            <a href="/dashboard" data-lin>Go To dashboard</a>
         `; 
     }
 }

@@ -73,6 +73,7 @@ body {
 .gecko_wrap {
     display: flex;
     flex-direction: column;
+
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -94,8 +95,6 @@ body {
     border-radius: 12px;
     height: 15px;
     padding: 10px;
-
-
 }
 
 .gecko_button_main {
@@ -104,12 +103,16 @@ body {
     max-height: 48px;
     color: #fff;
     font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
     font-weight: 700;
     padding: 10px 20px;
     border: none;
     border-radius: 14px;
     text-align: center;
     text-decoration: none;
+    
+
 
 }
 
@@ -127,10 +130,51 @@ body {
     
 }
 
+#gecko_list_themes {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    background: #fff;
+    gap: 10px
+
+}
+
+.gecko_list_themes_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #C3E0FB;
+    border-radius: 8px;
+    padding: 10px;
+} 
+
+.gecko_list_themes_item img{
+    max-height: 40%;
+    max-width: 40%;
+} 
+
 .gecko_players_list_item {
     display: flex;
     justify-content: space-between;
     font-family: "Nunito", sans-serif;
     padding: 8px 10px 8px 2px;
     border-bottom: solid #BFBFBF 1px;
+}
+
+.gecko_name_eyes {
+    border: solid red 3px;
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    margin: 30vh 0;
+    //gap: 10px;
+
+}
+
+.gecko_name_eyes img{
+    max-width: 100px;
+}
+
+.gecko_name_eyes span{
+    font-size: 35px;
 }

@@ -12,15 +12,16 @@ export default class from extends AbstractView {
 
     async getHtml() {
         return `
-            <div>
-                <h2>Passe o celular para:</h2>
-                <div>
-                    <img src="" alt="">
-                    <span>Nome1</span>
+        <div class="gecko_view">
+            <div class="gecko_wrap">
+                <h2 class="gecko_title">Passe o celular para:</h2>
+                <div class="gecko_name_eyes">
+                    <img src="static/assets/eyes.png" alt="">
+                    <span class="gecko_title">Nome1</span>
                 </div>
-                <button>Sim, eu sou Nome1!</button>
+                <a class="gecko_button_main" href="PassThePhoneTo" id="gecko_button_bottom">Sim, eu sou Nome1!</a>
             </div>
-            <a href="/dashboard" data-lin>Go To dashboard</a>
+        </div>
         `; 
     }
 }
