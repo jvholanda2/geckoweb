@@ -135,7 +135,8 @@ body {
 }
 
 #gecko_players_list {
-    max-height: 100px;
+    max-height: 200px;
+    min-height: 30px;
     border: none;
     border-radius: 14px;
     overflow-y: scroll;
@@ -244,5 +245,10 @@ body {
 }
 
 .gecko_view_start {
-    
+
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
