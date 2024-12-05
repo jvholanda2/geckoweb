@@ -64,7 +64,6 @@
 //         await this.setupEventListeners();
 //     }
 // }
-
 import AbstractView from "./AbstractView.js";
 
 export default class extends AbstractView {
@@ -109,7 +108,7 @@ export default class extends AbstractView {
         }
 
         // Pega o primeiro jogador da lista para exibição inicial
-        const currentPlayer = this.players[0];
+        const currentPlayer = this.players[0].name;
 
         return `
             <div class="gecko_view">
@@ -119,6 +118,8 @@ export default class extends AbstractView {
                         <img src="static/assets/eyes.png" alt="">
                         <span class="gecko_title">${currentPlayer}</span>
                     </div>
+                    <p class="gecko_text">O tema sorteado é: <strong>${this.selectedThemeAndWord.theme}</strong></p>
+                    <p class="gecko_text">A palavra é: <strong>${this.selectedThemeAndWord.word}</strong></p>
                     <a class="gecko_button_main gecko_button_bottom" href="TheWordIs" id="gecko_button_PassThePhone">Sim, eu sou ${currentPlayer}!</a>
                 </div>
             </div>
