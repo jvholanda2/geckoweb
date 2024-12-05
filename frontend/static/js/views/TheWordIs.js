@@ -30,7 +30,6 @@ export default class from extends AbstractView {
                     <p class="gecko_text gecko_text_bold">O tema da rodada é <span class="gecko_text_theme">Famosos</span>, agora é só fingir que você sabe qual é a palavra!</p>    
                 </div>
                 <a class="gecko_button_main" href="PassThePhoneTo" class="gecko_button_bottom">Entendido!</a>
-                <a class="gecko_button_main" href="StartTheRound" class="gecko_button_bottom">Entendido!</a>
             </div>
         `; 
     }
