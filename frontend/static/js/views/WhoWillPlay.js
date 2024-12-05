@@ -54,8 +54,7 @@ export default class extends AbstractView {
             playerDiv.className = "gecko_players_list_item";
             playerDiv.innerHTML = `
                 <p>${player}</p>
-                <img src="static/assets/x.png" alt="Remover" data-index="${index}" style="cursor: pointer;">
-            `;
+                <img src="static/assets/x.png" alt="Remover" data-index="${index}" style="cursor: pointer;">`;
             playersList.appendChild(playerDiv);
         });
 
@@ -86,8 +85,8 @@ export default class extends AbstractView {
                     
                     <a class="gecko_button_main gecko_button_bottom disabled" href="Themes" id="gecko_button_WhoWillPlay" disabled>Jogar</a>
                 </div>
-            </div>
-        `;
+            </div>`
+        ;
     }
 
     async setupEventListeners() {
