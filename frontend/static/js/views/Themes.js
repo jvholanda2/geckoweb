@@ -4,8 +4,8 @@ export default class extends AbstractView {
     constructor() {
         super();
         this.setTitle("Escolha o tema...");
-        this.selectedThemes = []; // Armazena os temas selecionados
-        this.themeWords = { // Dicionário de palavras relacionadas a cada tema
+        this.selectedThemes = []; 
+        this.themeWords = { 
             Locais: ["Praia", "Montanha", "Cidade", "Floresta", "Deserto", "Rio", "Vulcão", "Cachoeira", "Lago", "Caverna"],
             Famosos: ["Beyoncé", "Elon Musk", "Messi", "Rihanna", "Oprah", "Shakira", "Taylor Swift", "Leonardo DiCaprio", "Cristiano Ronaldo", "Angelina Jolie"],
             Animals: ["Cachorro", "Gato", "Leão", "Tigre", "Elefante", "Girafa", "Jacaré", "Cavalo", "Panda", "Urso"],
@@ -20,27 +20,22 @@ export default class extends AbstractView {
     toggleThemeSelection(themeElement, themeName) {
         const isSelected = themeElement.classList.contains("selected");
 
-        // Adiciona ou remove a borda do item
         if (isSelected) {
             themeElement.classList.remove("selected");
-            // Remove o tema da lista de selecionados
+            
             this.selectedThemes = this.selectedThemes.filter(theme => theme !== themeName);
         } else {
             themeElement.classList.add("selected");
-            // Adiciona o tema à lista de selecionados
             this.selectedThemes.push(themeName);
         }
 
-        // Salva os temas selecionados no localStorage
         localStorage.setItem("selectedThemes", JSON.stringify(this.selectedThemes));
 
         console.log("Temas selecionados:", this.selectedThemes);
 
-        // Habilita ou desabilita o botão de jogar dependendo do número de temas selecionados
         this.togglePlayButton();
     }
 
-    // Função para habilitar/desabilitar o botão "Jogar"
     togglePlayButton() {
         const playButton = document.querySelector("#gecko_button_bottom");
         if (this.selectedThemes.length > 0) {
@@ -52,18 +47,12 @@ export default class extends AbstractView {
         }
     }
 
-    // Função para sortear um tema e uma palavra
     drawRandomWord() {
         if (this.selectedThemes.length === 0) return;
 
-        // Escolhe um tema aleatório entre os selecionados
         const randomTheme = this.selectedThemes[Math.floor(Math.random() * this.selectedThemes.length)];
-
-        // Escolhe uma palavra aleatória do tema selecionado
         const words = this.themeWords[randomTheme];
         const randomWord = words[Math.floor(Math.random() * words.length)];
-
-        // Armazena o tema e a palavra sorteados no localStorage
         localStorage.setItem("selectedThemeAndWord", JSON.stringify({ theme: randomTheme, word: randomWord }));
 
         console.log("Tema e palavra sorteados:", { theme: randomTheme, word: randomWord });
@@ -100,7 +89,6 @@ export default class extends AbstractView {
     }
 
     async setupEventListeners() {
-        // Adiciona o evento de clique para cada item de tema
         const themeItems = document.querySelectorAll(".gecko_list_themes_item");
         themeItems.forEach((item) => {
             const themeName = item.querySelector(".gecko_title").textContent;
@@ -109,7 +97,6 @@ export default class extends AbstractView {
             });
         });
 
-        // Adiciona evento ao botão "Jogar"
         const playButton = document.querySelector("#gecko_button_bottom");
         playButton.addEventListener("click", () => {
             this.drawRandomWord();
@@ -118,15 +105,14 @@ export default class extends AbstractView {
 
 
     async init() {
-        // Recupera os temas selecionados do localStorage
+       
         this.selectedThemes = JSON.parse(localStorage.getItem("selectedThemes")) || [];
         console.log("Temas previamente selecionados:", this.selectedThemes);
     
-        // Exibe o array de jogadores no console
+       
         const players = JSON.parse(localStorage.getItem("players")) || [];
-        console.log("Jogadores armazenados:", players); // Aqui mostramos o array dos jogadores
+        console.log("Jogadores armazenados:", players); 
     
-        // Atualiza a interface com os temas previamente selecionados
         const themeItems = document.querySelectorAll(".gecko_list_themes_item");
         themeItems.forEach((item) => {
             const themeName = item.querySelector(".gecko_title").textContent;
@@ -136,7 +122,7 @@ export default class extends AbstractView {
         });
     
         await this.setupEventListeners();
-        this.togglePlayButton(); // Inicializa o estado do botão corretamente
+        this.togglePlayButton(); 
     }
     
 }

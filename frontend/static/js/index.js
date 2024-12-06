@@ -42,16 +42,9 @@ const router = async () => {
         }
     }
 
-
-//     const view = new match.route.view()
-
-//     document.querySelector("#app").innerHTML = await view.getHtml();
-//    // console.log(potentialMatches)
-//     console.log(match.route.view)
-
     const view = new match.route.view();
     document.querySelector("#app").innerHTML = await view.getHtml();
-    if (view.init) await view.init(); // Chama o init se ele existir
+    if (view.init) await view.init();
 
 
 };

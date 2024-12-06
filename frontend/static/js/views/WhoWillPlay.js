@@ -4,7 +4,7 @@ export default class extends AbstractView {
     constructor() {
         super();
         this.setTitle("Quem vai jogar?");
-        this.players = JSON.parse(localStorage.getItem("players")) || []; // Carrega os jogadores do localStorage
+        this.players = JSON.parse(localStorage.getItem("players")) || []; 
     }
 
     setTitle(title) {
@@ -14,33 +14,26 @@ export default class extends AbstractView {
     addPlayer(playerName) {
         playerName = playerName.trim();
 
-        // Verifica se o nome do jogador não está vazio e não é duplicado
         if (playerName !== "" && !this.players.some(player => player.name === playerName)) {
-            // Adiciona o jogador na lista, sem definir ainda o impostor
             const player = { name: playerName };
-            this.players.unshift(player); // Adiciona o jogador no início da lista
-
-            localStorage.setItem("players", JSON.stringify(this.players)); // Salva a lista no localStorage
-            this.renderPlayers(); // Re-renderiza a lista de jogadores
-            this.togglePlayButton(); // Atualiza o estado do botão "Jogar"
-
-            // Mostra a lista atualizada de jogadores no console
-            console.log("Jogadores atuais:", this.players);
+            this.players.unshift(player);
+            localStorage.setItem("players", JSON.stringify(this.players));
+            this.renderPlayers();
+            this.togglePlayButton(); 
         } else {
-            alert("Jogador inválido ou nome duplicado!"); // Feedback ao usuário
+            alert("Jogador inválido ou nome duplicado!"); 
         }
     }
 
     removePlayer(index) {
-        this.players.splice(index, 1); // Remove o jogador da lista
-        localStorage.setItem("players", JSON.stringify(this.players)); // Atualiza no localStorage
-        this.renderPlayers(); // Re-renderiza a lista de jogadores
-        this.togglePlayButton(); // Atualiza o estado do botão "Jogar"
+        this.players.splice(index, 1);
+        localStorage.setItem("players", JSON.stringify(this.players)); 
+        this.renderPlayers(); 
+        this.togglePlayButton(); 
     }
 
     togglePlayButton() {
-        const playButton = document.querySelector(".gecko_button_bottom");
-        // Habilita o botão "Jogar" quando houver 3 ou mais jogadores
+        const playButton = document.querySelector("#gecko_button_WhoWillPlay");
         if (this.players.length >= 3) {
             playButton.removeAttribute("disabled");
             playButton.classList.remove("disabled");
@@ -52,9 +45,8 @@ export default class extends AbstractView {
 
     renderPlayers() {
         const playersList = document.querySelector("#gecko_players_list");
-        playersList.innerHTML = ""; // Limpa a lista atual
+        playersList.innerHTML = ""; 
 
-        // Renderiza a lista de jogadores na ordem correta (do início para o final)
         this.players.forEach((player, index) => {
             const playerDiv = document.createElement("div");
             playerDiv.className = "gecko_players_list_item";
@@ -64,7 +56,7 @@ export default class extends AbstractView {
             playersList.appendChild(playerDiv);
         });
 
-        // Adiciona event listeners para remover jogadores
+      
         document.querySelectorAll("#gecko_players_list img").forEach(img => {
             img.addEventListener("click", (e) => {
                 const index = e.target.getAttribute("data-index");
@@ -76,37 +68,31 @@ export default class extends AbstractView {
     assignImpostor() {
         const playerCount = this.players.length;
 
-        // Garante que há pelo menos 1 impostor se houver 3 ou mais jogadores
         if (playerCount >= 3) {
-            const impostorCount = Math.max(1, Math.floor(playerCount / 4)); // Calcula quantos impostores devem ser atribuídos, mas garante pelo menos 1 impostor
-
-            // Garante que sempre terá pelo menos 1 impostor
+            const impostorCount = Math.max(1, Math.floor(playerCount / 4));
             const impostorIndexes = [];
             while (impostorIndexes.length < impostorCount) {
                 const randomIndex = Math.floor(Math.random() * playerCount);
                 if (!impostorIndexes.includes(randomIndex)) {
-                    impostorIndexes.push(randomIndex); // Adiciona o índice do impostor
+                    impostorIndexes.push(randomIndex);
                 }
             }
 
-            // Atribui os impostores e garante que os outros jogadores não sejam impostores
             this.players.forEach((player, index) => {
-                player.impostor = impostorIndexes.includes(index); // Se o índice estiver em impostorIndexes, o jogador é impostor
+                player.impostor = impostorIndexes.includes(index);
             });
 
-            localStorage.setItem("players", JSON.stringify(this.players)); // Atualiza no localStorage
-            console.log("Jogadores com impostores:", this.players);
+            localStorage.setItem("players", JSON.stringify(this.players));
         } else {
             alert("É necessário pelo menos 3 jogadores para iniciar o jogo com impostores!");
         }
     }
 
-    // Resetando o estado dos impostores ao iniciar o jogo
     resetImpostors() {
         this.players.forEach(player => {
-            player.impostor = false; // Remove a marcação de impostor
+            player.impostor = false; 
         });
-        localStorage.setItem("players", JSON.stringify(this.players)); // Atualiza no localStorage
+        localStorage.setItem("players", JSON.stringify(this.players));
     }
 
     async getHtml() {
@@ -134,18 +120,19 @@ export default class extends AbstractView {
     async setupEventListeners() {
         document.querySelector("#gecko_button_add_player").addEventListener("click", () => {
             const input = document.querySelector("#gecko_input_player");
-            this.addPlayer(input.value); // Adiciona o jogador
-            input.value = ""; // Limpa o input após adicionar
+            this.addPlayer(input.value);
+            input.value = ""; 
         });
 
         document.querySelector("#gecko_button_WhoWillPlay").addEventListener("click", () => {
-            this.resetImpostors(); // Reseta os impostores antes de atribuí-los novamente
-            this.assignImpostor(); // Atribui o impostor ao clicar em "Jogar"
+            this.resetImpostors(); 
+            this.assignImpostor(); 
         });
     }
 
     async init() {
-        this.renderPlayers(); // Renderiza a lista de jogadores carregada
-        await this.setupEventListeners(); // Configura os eventos
+        this.renderPlayers();
+        this.togglePlayButton(); 
+        await this.setupEventListeners();
     }
 }
