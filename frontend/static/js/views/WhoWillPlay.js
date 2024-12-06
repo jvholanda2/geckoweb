@@ -73,27 +73,40 @@ export default class extends AbstractView {
         });
     }
 
-    // Lógica para determinar se o jogador será impostor
     assignImpostor() {
         const playerCount = this.players.length;
 
-        // Garante que há um impostor se houver 3 ou mais jogadores
+        // Garante que há pelo menos 1 impostor se houver 3 ou mais jogadores
         if (playerCount >= 3) {
-            const impostorIndex = Math.floor(Math.random() * playerCount);
-            this.players[impostorIndex].impostor = true; // Atribui o impostor aleatoriamente
+            const impostorCount = Math.max(1, Math.floor(playerCount / 4)); // Calcula quantos impostores devem ser atribuídos, mas garante pelo menos 1 impostor
 
-            // Marca outros jogadores como não impostores
-            this.players.forEach((player, index) => {
-                if (index !== impostorIndex) {
-                    player.impostor = false;
+            // Garante que sempre terá pelo menos 1 impostor
+            const impostorIndexes = [];
+            while (impostorIndexes.length < impostorCount) {
+                const randomIndex = Math.floor(Math.random() * playerCount);
+                if (!impostorIndexes.includes(randomIndex)) {
+                    impostorIndexes.push(randomIndex); // Adiciona o índice do impostor
                 }
+            }
+
+            // Atribui os impostores e garante que os outros jogadores não sejam impostores
+            this.players.forEach((player, index) => {
+                player.impostor = impostorIndexes.includes(index); // Se o índice estiver em impostorIndexes, o jogador é impostor
             });
 
             localStorage.setItem("players", JSON.stringify(this.players)); // Atualiza no localStorage
-            console.log("Jogadores com impostor:", this.players);
+            console.log("Jogadores com impostores:", this.players);
         } else {
-            alert("É necessário pelo menos 3 jogadores para iniciar o jogo com impostor!");
+            alert("É necessário pelo menos 3 jogadores para iniciar o jogo com impostores!");
         }
+    }
+
+    // Resetando o estado dos impostores ao iniciar o jogo
+    resetImpostors() {
+        this.players.forEach(player => {
+            player.impostor = false; // Remove a marcação de impostor
+        });
+        localStorage.setItem("players", JSON.stringify(this.players)); // Atualiza no localStorage
     }
 
     async getHtml() {
@@ -126,6 +139,7 @@ export default class extends AbstractView {
         });
 
         document.querySelector("#gecko_button_WhoWillPlay").addEventListener("click", () => {
+            this.resetImpostors(); // Reseta os impostores antes de atribuí-los novamente
             this.assignImpostor(); // Atribui o impostor ao clicar em "Jogar"
         });
     }

@@ -116,11 +116,16 @@ export default class extends AbstractView {
         });
     }
 
+
     async init() {
         // Recupera os temas selecionados do localStorage
         this.selectedThemes = JSON.parse(localStorage.getItem("selectedThemes")) || [];
         console.log("Temas previamente selecionados:", this.selectedThemes);
-
+    
+        // Exibe o array de jogadores no console
+        const players = JSON.parse(localStorage.getItem("players")) || [];
+        console.log("Jogadores armazenados:", players); // Aqui mostramos o array dos jogadores
+    
         // Atualiza a interface com os temas previamente selecionados
         const themeItems = document.querySelectorAll(".gecko_list_themes_item");
         themeItems.forEach((item) => {
@@ -129,11 +134,17 @@ export default class extends AbstractView {
                 item.classList.add("selected");
             }
         });
-
+    
         await this.setupEventListeners();
         this.togglePlayButton(); // Inicializa o estado do botão corretamente
     }
+    
 }
+
+
+
+
+
 
 
 
