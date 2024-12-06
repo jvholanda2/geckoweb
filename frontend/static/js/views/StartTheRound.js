@@ -7,17 +7,50 @@ export default class extends AbstractView {
         this.setTitle("Que comece a rodada!");
     }
 
+    // Função para resetar o jogo e atribuir impostores
     resetGameState() {
-        // Atualiza o estado global com o índice inicial (zerado)
+        // Recupera os jogadores do localStorage
+        let players = JSON.parse(localStorage.getItem("players")) || [];
+
+        // Se houver jogadores, atribuímos impostores
+        if (players.length > 0) {
+            // Reseta todos os jogadores como não impostores
+            players = players.map(player => ({
+                ...player,
+                impostor: false
+            }));
+
+            // Calcula quantos impostores devem ser atribuídos
+            const numberOfImpostors = Math.max(Math.floor(players.length / 4), 1); // Garantir pelo menos 1 impostor
+            console.log("Número de impostores:", numberOfImpostors);
+
+            // Atribui aleatoriamente os impostores
+            const impostorIndexes = [];
+            while (impostorIndexes.length < numberOfImpostors) {
+                const randomIndex = Math.floor(Math.random() * players.length);
+                if (!impostorIndexes.includes(randomIndex)) {
+                    impostorIndexes.push(randomIndex);
+                    players[randomIndex].impostor = true;
+                }
+            }
+
+            // Armazena os jogadores atualizados com os impostores no localStorage
+            localStorage.setItem("players", JSON.stringify(players));
+
+            // Log para depuração
+            console.log("Impostores atribuídos:", impostorIndexes.map(index => players[index].name));
+        }
+
+        // Reseta o estado global com o índice inicial
         updateGameState({
-            currentPlayerIndex: 0, // Reseta o índice
+            currentPlayerIndex: 0, // Reseta o índice para a rodada começar
         });
-        // Log para verificar se o estado foi resetado
-        console.log("Estado do jogo reiniciado. Jogadores mantidos.");
+
+        console.log("Estado do jogo reiniciado.");
     }
 
     async getHtml() {
-        // Reseta o jogo ao carregar a View
+        // Reseta o jogo e atribui impostores ao carregar a View
         this.resetGameState();
 
         return `
