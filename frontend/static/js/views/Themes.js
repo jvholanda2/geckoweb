@@ -77,7 +77,7 @@ export default class extends AbstractView {
                         </div>
                         <div class="gecko_list_themes_item">
                             <img src="static/assets/animals.png" alt="">
-                            <p class="gecko_title">Animals</p>
+                            <p class="gecko_title">Animais</p>
                         </div>
                         <div class="gecko_list_themes_item">
                             <img src="static/assets/eyes.png" alt="">

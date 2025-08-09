@@ -103,7 +103,7 @@ export default class extends AbstractView {
                 </div>
                 <div class="gecko_wrap">
                     <h2 class="gecko_title">Quem vai jogar?</h2>
-                    <p class="gecko_text">Coloque aqui o nome do jogador que quer adicionar:</p>
+                    <p class="gecko_text">Coloque aqui o nome do jogador que deseja adicionar:</p>
                     <input id="gecko_input_player" class="gecko_input" type="text" placeholder="Nome do jogador">
                     <button id="gecko_button_add_player" class="gecko_button_main">Adicionar</button>
 

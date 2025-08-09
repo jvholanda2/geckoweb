@@ -7,6 +7,8 @@ import Themes from "./views/Themes.js"
 import PassThePhoneTo from "./views/PassThePhoneTo.js"
 import TheWordIs from "./views/TheWordIs.js"
 import StartTheRound from "./views/StartTheRound.js"
+import Splash from "./views/Splash.js"
+
 
 const navigateTo = url => {
     history.pushState(null, null, url);
@@ -15,7 +17,8 @@ const navigateTo = url => {
  
 const router = async () => {
     const routes = [
-        {path: "/", view: WhoWillPlay},
+        {path: "/", view: Splash},
+        {path: "/Splash", view: Splash},
         {path: "/dashboard", view: Dashboard },
         {path: "/posts", view: Posts },
         {path: "/settings", view: Settings},
