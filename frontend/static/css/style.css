@@ -262,3 +262,16 @@ body {
     padding: 10px;
     transition: border-color 0.3s;
 }
+
+.gecko_textRed{
+    font-weight: 900;
+    color: red;
+}
+
+.gecko_margin_bottom_end {
+    margin-bottom: 45vh;
+}
+
+.gecko_margin_mid {
+    margin: 30vh 0;
+}
