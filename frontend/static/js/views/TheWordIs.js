@@ -35,11 +35,13 @@ export default class extends AbstractView {
 
         const currentPlayer = this.players[this.currentPlayerIndex];
         const { word } = this.selectedThemeAndWord;
+        const { theme } = this.selectedThemeAndWord;
         const impostor = currentPlayer.impostor;
         const wordDisplay = impostor ? "Impostor" : word;
 
+        console.log(this.selectedThemeAndWord)
         const impostorMessage = impostor
-            ? "Você é o impostor! Finja que sabe a palavra!"
+            ? `Você é o impostor! Finja que sabe a palavra! <br> Aqui vai uma dica: <strong class="gecko_textRed">${theme}</strong>`
             : `A palavra da rodada é: <strong>${word}</strong>`;
 
         console.log(currentPlayer.name, "impostor:", impostor, "word:", word);
@@ -47,7 +49,7 @@ export default class extends AbstractView {
 
         return `
             <div class="gecko_view gecko_view_word">
-                <div class="gecko_wrap">
+                <div class="gecko_wrap gecko_margin_mid">
                     <span class="gecko_title">${currentPlayer.name}</span>
                     <p class="gecko_text gecko_text_bold">${impostorMessage}</p>
                     <div class="gecko_word">

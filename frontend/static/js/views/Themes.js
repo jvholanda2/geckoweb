@@ -9,7 +9,9 @@ export default class extends AbstractView {
             Locais: ["Praia", "Montanha", "Cidade", "Floresta", "Deserto", "Rio", "Vulcão", "Cachoeira", "Lago", "Caverna"],
             Famosos: ["Beyoncé", "Elon Musk", "Messi", "Rihanna", "Oprah", "Shakira", "Taylor Swift", "Leonardo DiCaprio", "Cristiano Ronaldo", "Angelina Jolie"],
             Animals: ["Cachorro", "Gato", "Leão", "Tigre", "Elefante", "Girafa", "Jacaré", "Cavalo", "Panda", "Urso"],
-            Personagens: ["Homem-Aranha", "Harry Potter", "Mickey Mouse", "Sherlock Holmes", "Darth Vader", "Superman", "Mulher Maravilha", "Batman", "Hulk", "Capitão América"]
+            Personagens: ["Homem-Aranha", "Harry Potter", "Mickey Mouse", "Sherlock Holmes", "Darth Vader", "Superman", "Mulher Maravilha", "Batman", "Hulk", "Capitão América"],
+            Filmes:["Titanic", "Vingadores", "Star Wars", "Avatar", "Matrix", "O Senhor dos Anéis", "Frozen", "Jurassic Park", "Pantera Negra","Forrest Gump", "Clube da Luta", "Coringa", "O Rei Leão", "Piratas do Caribe", "De Volta para o Futuro", "A Bela e a Fera", "Procurando Nemo", "Toy Story", "Os Incríveis"],
+            Comidas: ["Pizza", "Hambúrguer", "Sushi", "Lasanha", "Sorvete", "Taco", "Churrasco", "Panqueca", "Coxinha", "Espaguete"]
         };
     }
 
@@ -78,9 +80,18 @@ export default class extends AbstractView {
                             <p class="gecko_title">Animals</p>
                         </div>
                         <div class="gecko_list_themes_item">
-                            <img src="static/assets/characters.png" alt="">
+                            <img src="static/assets/eyes.png" alt="">
                             <p class="gecko_title">Personagens</p>
                         </div>
+                        <div class="gecko_list_themes_item">
+                            <img src="static/assets/characters.png" alt="">
+                            <p class="gecko_title">Filmes</p>
+                        </div>
+                        <div class="gecko_list_themes_item">
+                            <img src="static/assets/food.png" alt="">
+                            <p class="gecko_title">Comidas</p>
+                        </div>
+
                     </div>
                     <a class="gecko_button_main disabled" href="PassThePhoneTo" id="gecko_button_bottom" disabled>Jogar</a>
                 </div>
